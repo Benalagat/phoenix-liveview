@@ -49,7 +49,7 @@ form input[type="text"]:focus {
 }
 
 .textarea {
-    @apply bg-emDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none;
+    @apply m-0 bg-emDark-dark font-brand font-regular text-white text-xs border border-white h-[300px] resize-none;
     border-top: none;
     border-left: none;
 }
@@ -59,7 +59,7 @@ form input[type="text"]:focus {
 }
 
 .line-numbers {
-    @apply border border-white font-brand font-regular text-xs text-emDark-light bg-emDark-dark h-[300px] w-[54px] text-right overflow-hidden resize-none;
+    @apply border border-white font-brand font-regular text-xs text-emDark-light bg-emDark-dark h-[300px] w-[30px] text-right overflow-hidden resize-none mt-3 space-y-2; 
     border-right: none;
     border-top: none;
 }

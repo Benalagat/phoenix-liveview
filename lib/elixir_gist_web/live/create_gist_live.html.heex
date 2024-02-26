@@ -3,12 +3,11 @@
     Instantly share Elixir code, notes, and snippets.
   </h1>
 </div>
-
 <.form for={@form} phx-submit="create" phx-change="validate">
   <div class="justify-center px-28 w-full space-y-4 mb-10">
     <.input
       field={@form[:description]}
-      placeholder="Gist description..."
+      placeholder="Gist description.."
       autocomplete="off"
       phx-debounce="blur"
     />
@@ -17,38 +16,31 @@
         <div class="w-[300px] mb-2">
           <.input
             field={@form[:name]}
-            placeholder="filename including extension..."
+            placeholder="Filename including extension..."
             autocomplete="off"
             phx-debounce="blur"
           />
         </div>
       </div>
-      <div id="gist-wrapper" class="flex w-full" phx-update="ignore">
-        <textarea id="line-numbers" class="line-numbers rounded-bl-md" readonly>
-      <%= "1\n" %>
-      </textarea>
+      <div id="gist-wrapper" class="flex flex-row   w-full" phx-update="ignore">
+        <textarea id="line-numbers" class="  line-numbers rounded-bl-md" readonly>
+          <%= "1\n" %>
+        </textarea>
         <.input
           type="textarea"
           id="gist-textarea"
           field={@form[:markup_text]}
           class="textarea w-full rounded-br-md"
-          phx-hook="UpdateLineNumbers"
+          phx-hook="updateLineNumbers"
           placeholder="Insert code..."
           spellcheck="false"
           autocomplete="off"
           phx-debounce="blur"
         />
-        <%!-- <%= textarea(@form, :markup_text,
-        class= "w-full rounded-b-md",
-        placeholder= "Insert code...)",
-        spellcheck= "false",
-        autocomplete= "off"
-        ) %> --%>
       </div>
     </div>
     <div class="flex justify-end">
-      <.button class="create_button" phx-disable-with="Creating...">Create Gist</.button>
+      <.button class="create_button" phx-disable-with="Creating...">Create gist</.button>
     </div>
   </div>
 </.form>
-

@@ -76,12 +76,17 @@ Hooks.Highlight = {
 Hooks.updateLineNumbers = {
   mounted() {
     const lineNumberText = document.querySelector("#line-numbers")
+
     this.el.addEventListener("input", () => {
       updateLineNumbers(this.el.value)
     })
-    this.el.addEventListener("scroll", () => {
+
+    this.el.addEventListener("scroll", () => { 
       lineNumberText.scrollTop = this.el.scrollTop
+      console.log("mother f");
+
     })
+
     this.el.addEventListener("keydown", (e) => {
       if (e.key == "Tab") {
         e.preventDefault();
@@ -91,13 +96,18 @@ Hooks.updateLineNumbers = {
         this.el.selectionStart = this.el.selectionEnd = start + 1
       }
     })
+
+
     this.handleEvent("clear-textareas", () => {
       this.el.value = ""
       lineNumberText.value = "1\n"
     })
+
     updateLineNumbers(this.el.value)
   }
+
 };
+
 Hooks.CopyToClipboard={
   mounted(){
     this.el.addEventListener("click", e=>{

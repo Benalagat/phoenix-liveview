@@ -1,0 +1,26 @@
+<div class="table-auto" style="background-color: white; padding: 10px; margin: 20px;">
+  <table style="border-collapse: collapse; width: 100%;">
+    <thead>
+      <tr>
+        <th style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">#ID</th>
+        <th style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">Name</th>
+        <th style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for gist <- @gists do %>
+        <tr>
+          <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">
+            #
+          </td>
+          <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">
+            <%= gist.name %>
+          </td>
+          <td style="padding: 10px; border-bottom: 1px solid #ddd; text-align: left;">
+            <%= gist.description %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
