@@ -1,3 +1,5 @@
+
+
 <div class="table-auto" style="background-color: white; padding: 10px; margin: 20px;">
   <table style="border-collapse: collapse; width: 100%;">
     <thead>
@@ -23,4 +25,18 @@
       <% end %>
     </tbody>
   </table>
+</div>
+<div class="flex flex-row justify-between px-40" style="background-color: white;">
+ 
+    <.button 
+  phx-click="prev_page" phx-disable={length(@gists) < 1}
+  >
+  Previous
+  </.button>
+
+  <.button 
+  phx-click="next" phx-disable={length(@gists) < 5}
+  >
+  next
+  </.button>
 </div>

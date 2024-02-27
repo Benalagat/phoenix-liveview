@@ -18,8 +18,9 @@ defmodule ElixirGist.Gists do
       [%Gist{}, ...]
 
   """
-  def list_gists do
-    Repo.all(Gist)
+
+  def list_gists(page \\ 1) do
+    Repo.all(from(g in Gist, offset: ^((page - 1) * 5), limit: 5))
   end
 
   @doc """
@@ -52,7 +53,7 @@ defmodule ElixirGist.Gists do
   """
   def create_gist(user, attrs \\ %{}) do
     user
-    |>Ecto.build_assoc(:gists)
+    |> Ecto.build_assoc(:gists)
     |> Gist.changeset(attrs)
     |> Repo.insert()
   end
@@ -87,7 +88,7 @@ defmodule ElixirGist.Gists do
       {:error, %Ecto.Changeset{}}
 
   """
- def delete_gist(%User{} = user, gist_id) do
+  def delete_gist(%User{} = user, gist_id) do
     gist = Repo.get!(Gist, gist_id)
 
     if user.id == gist.user_id do
@@ -97,7 +98,6 @@ defmodule ElixirGist.Gists do
       {:error, :unauthorized}
     end
   end
-
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking gist changes.
